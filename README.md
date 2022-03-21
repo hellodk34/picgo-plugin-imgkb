@@ -37,7 +37,12 @@ PicGo upload plugin for imgkb.com.
 
 ![20220321163809](https://img.ukx.cn/abcdocker/2022/03/21/c52ea75151377/c52ea75151377.png)
 
-由于源站使用 Let's Encrypt 颁发的免费证书，有效期只有 90 天，在测试上传中经常遇到 `certificate has expired` 错误，请打开开关 `Ignore certificate error` 再次尝试。
+由于源站使用 Let's Encrypt 颁发的免费证书，有效期只有 90 天，在测试上传中经常遇到 `certificate has expired` 错误，打开开关 `Ignore certificate error` 即可成功上传。
+
+# 致谢
+
+- 感谢 [imgkb.com 图床](https://imgkb.com/)
+- 感谢 [PicGo 项目](https://github.com/Molunerfinn/PicGo)
 
 # 开源许可证
 
