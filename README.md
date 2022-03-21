@@ -16,13 +16,15 @@ PicGo upload plugin for imgkb.com.
 
 ## 1. 在线安装
 
-打开 PicGo 详细窗口，选择插件设置，搜索 **imgkb** (认准 author 是 `hellodk`) 安装，然后重启应用即可。
+打开 PicGo 详细窗口，选择插件设置，搜索 **imgkb** (author 是 `hellodk`) 安装。
+
+![20220321175521](https://img.ukx.cn/abcdocker/2022/03/21/3def0d41e0565/3def0d41e0565.png)
 
 ## 2. 离线安装
 
 克隆该项目，解压缩并 cd 到路径 `/path/to/picgo-plugin-imgkb`，执行
 
-`npm install ./picgo-plugin-imgkb` ，然后重启应用即可。
+`npm install ./picgo-plugin-imgkb` 。
 
 ## 3. 使用方法
 
