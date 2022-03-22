@@ -8,7 +8,10 @@ module.exports = (ctx) => {
       config: config
     })
   }
-  const postOptions = (token, ignoreCertErr, fileName, image) => {
+  const postOptions = (serverUrl, token, ignoreCertErr, fileName, image) => {
+    if (serverUrl.endsWith("/")) {
+      throw new Error("Server url cannot ends with /")
+    }
     let requestAgent = new https.Agent({
       // 此处需要取反 忽略证书错误 拒绝未授权证书选项
       rejectUnauthorized: !ignoreCertErr
@@ -16,11 +19,12 @@ module.exports = (ctx) => {
 
     return {
       method: 'POST',
-      url: `https://imgkb.com/api/upload`,
+      // 更新 1.0.2 支持类兰空图床
+      // url: `https://imgkb.com/api/upload`,
+      url: `${serverUrl}/api/upload`,
       agent: requestAgent,
       headers: {
         'Content-Type': 'multipart/form-data',
-        // 'Host': "https://imgkb.com",
         'User-Agent': 'PicGo',
         'Connection': 'keep-alive',
         'token': token || undefined
@@ -41,6 +45,7 @@ module.exports = (ctx) => {
     if (!userConfig) {
       throw new Error('Can\'t find uploader config')
     }
+    const serverUrl = userConfig.server
     const token = userConfig.token
     const ignoreCertErr = userConfig.ignoreCertErr
     const imgList = ctx.output
@@ -49,7 +54,7 @@ module.exports = (ctx) => {
       if (!image && imgList[i].base64Image) {
         image = Buffer.from(imgList[i].base64Image, 'base64')
       }
-      const postConfig = postOptions(token, ignoreCertErr, imgList[i].fileName, image)
+      const postConfig = postOptions(serverUrl, token, ignoreCertErr, imgList[i].fileName, image)
       let body = await ctx.Request.request(postConfig)
 
       body = JSON.parse(body)
@@ -75,6 +80,14 @@ module.exports = (ctx) => {
       userConfig = {}
     }
     return [
+      {
+        name: 'server',
+        type: 'input',
+        default: userConfig.server,
+        required: true,
+        message: '示例: https://example.com',
+        alias: 'Server'
+      },
       {
         name: 'token',
         type: 'input',
