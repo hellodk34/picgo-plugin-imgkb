@@ -1,14 +1,8 @@
-## picgo-plugin-imgkb
+# 前言
 
 这是一个基于 imgkb.com 图床的 PicGo 图片上传插件。基于 `PicGo V2.3.0` 开发。
 
-# 更新日志
-
-- v1.0.0 支持 imgkb.com 图床，支持忽略证书错误
-- v1.0.1 更新 readme 文案
-- v1.0.2 支持所有兰空图床，原有 uploader `imgkb` 保持不变，设置项增加服务器地址（配置时请不要以 `/` 结尾）
-
-![20220322100519](https://img.github.luxe/2022/179b6b02de109.png)
+为了减少影响，新开发的适配所有 [兰空图床](https://github.com/lsky-org/lsky-pro) 的 PicGo 上传插件请移步 [picgo-plugin-lankong](https://github.com/hellodk34/picgo-plugin-lankong) 。
 
 ---
 

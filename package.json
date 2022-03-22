@@ -1,7 +1,7 @@
 {
   "name": "picgo-plugin-imgkb",
-  "version": "1.0.2",
-  "description": "Picgo uploader for 兰空图床",
+  "version": "1.0.5",
+  "description": "Picgo uploader for imgkb.com.",
   "main": "dist/index.js",
   "publishConfig": {
     "access": "public"
